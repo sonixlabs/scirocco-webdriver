@@ -1,0 +1,90 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 120%;
+  margin: 10px;
+  padding: 10px;
+}
+
+ul {
+  width: 778px;
+  background-color: #E5EECC;
+  padding: 10px 0px 10px 20px;
+  border: 1px solid #C3C3C3;
+  margin: 1px 0px;
+  font-size: 80%;
+}
+
+li {
+  list-style: none;
+}
+
+h3 {
+  background-color: #6B8E23;
+  color: white;
+  padding: 5px 20px 5px 20px;
+  width: 760px;
+  margin: 0px;
+}
+
+.overall_table {
+  background-color: white;
+  border: 1px solid #C3C3C3;
+  border-collapse: collapse;
+  width: 800px;
+  font-size: 80%;
+}
+
+.overall_table th {
+  background-color: #E5EECC;
+  border: 1px solid #C3C3C3;
+  padding: 3px;
+  vertical-align: top;
+  text-align: left;
+}
+
+.overall_table td {
+  border: 1px solid #C3C3C3;
+  padding: 3px;
+  vertical-align: top;
+}
+
+.small_img {
+  width: 100px;
+  height: 150px;
+  border: 1px solid black;
+  margin: 1px;
+}
+
+.evidence_td {
+  text-align: left;
+}
+
+.bold {
+  width: 150px;
+  font-weight: bold;
+}
+
+.stacktrace {
+  font-size: 90%;
+}
+
+.sec {
+  font-size: 80%;
+  font-style: italic;	
+}
+
+.mark {
+  float: right;
+  font-style: italic;
+  font-size: 60%;
+  font-weight: normal;
+  padding-top: 5px; 
+}
+
+.result_ok {
+  color: green;	
+}
+
+.result_err {
+  color: red;
+}

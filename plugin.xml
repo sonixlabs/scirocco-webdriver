@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+    <extension 
+        point="org.eclipse.debug.ui.launchShortcuts">
+        <shortcut
+              label="Scirocco Test"
+              icon="icons/scirocco.png"
+              helpContextId="org.eclipse.jdt.junit.launch_shortcut"
+              class="com.android.test.scirocco2.extend.core.SciroccoLaunchShortcut"
+              modes="run, debug"
+              id="com.android.test.scirocco2.junitShortcut">
+           <contextualLaunch>
+              <enablement>
+                 <with variable="selection">
+                    <count value="1"/>
+                    <iterate>
+                       <adapt type="org.eclipse.jdt.core.IJavaElement">
+                          <test property="org.eclipse.jdt.core.hasTypeOnClasspath" value="junit.framework.Test"/>
+                       </adapt>
+                    </iterate>
+                 </with>
+              </enablement>
+           </contextualLaunch>
+           <configurationType
+                 id="org.eclipse.jdt.junit.launchconfig">
+           </configurationType>
+        </shortcut>
+    </extension>
+    
+    <extension
+          point="org.eclipse.jdt.junit.testRunListeners">
+          <testRunListener class="com.android.test.scirocco2.extend.core.ScirrocoTestListener"/>
+    </extension>
+
+    <extension
+        point="org.eclipse.core.runtime.preferences">
+        <initializer
+            class="com.android.test.scirocco2.preference.Scirocco2PreferenceInitializer">
+        </initializer>
+    </extension>
+    
+    <extension
+        point="org.eclipse.ui.preferencePages">
+        <page
+            class="com.android.test.scirocco2.preference.Scirocco2PreferencePage"
+            id="com.android.test.scirocco2.preference.page"
+            name="Scirocco for WebDriver">
+        </page>
+    </extension>
+    
+    <extension
+       point="org.eclipse.ui.newWizards">
+       <category
+           id="com.android.test.scirocco2.category"
+           name="Scirocco Android Test"/>
+       <wizard
+           category="com.android.test.scirocco2.category"
+           class="com.android.test.scirocco2.extend.wizard.SciroccoProjectWizard"
+           icon="icons/scirocco.png"
+           id="com.android.test.scirocco2.wizard"
+           name="Android Test Project"
+           project="true"/>
+    </extension>
+</plugin>
