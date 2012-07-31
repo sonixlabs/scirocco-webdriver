@@ -1,3 +1,5 @@
+![scirocco_webdriver_logo](https://www.scirocco-cloud.com/images/scirocco_webdriver_logo.png)
+
 # Application Test Automation Tool
 
 “Scirocco” is an open source Application testing tool from Sonix. You will be able to access necessary testing devices from Eclipse. Instead of hand operation, Scirocco provides automatic Android application’s testing functionalities. it supports Google’s NativeDriver and AndroidDriver as main testing library.
