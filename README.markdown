@@ -22,3 +22,12 @@ Scirocco consist of three parts as below.
 * An Eclipse plug-in
 * Possible to perform scenario testing automatically and making test
 reports with screenshots
+
+### Requirements
+
+* Eclipse >= 3.7.2 (aka Indigo SR2)
+* Java >= 6
+
+### Updatesite
+
+* http://scirocco.sonixlabs.com/update

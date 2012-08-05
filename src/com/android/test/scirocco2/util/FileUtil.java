@@ -1,5 +1,6 @@
 package com.android.test.scirocco2.util;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,6 +14,10 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class FileUtil {
+	private static final String NATIVE_D_SAMPLE_NAME = "NativeDriverSample.java";
+	private static final String ANDROID_D_SAMPLE_NAME = "AndroidDriverSample.java";
+	private static final String REPLACE_PACKAGE_STRING = "target_app_package";
+	
     public static boolean fileCopy(String targetPath, String destPath) {
         try {
             File inputFile = new File(targetPath);
@@ -97,6 +102,39 @@ public class FileUtil {
                 bw.newLine();
             }
             bw.close();            
+        } catch(IOException e){
+            System.out.println(e);
+        }
+    }
+    
+    public static void createSampleClassFile(String samplePath, String apkPackage) {
+    	try{
+    		File file = new File(samplePath);
+    		if (! file.exists() ) { 
+    			file.mkdirs();
+    		}
+    		// native driver sample 
+            BufferedWriter bw = new BufferedWriter(new FileWriter(new File(samplePath + NATIVE_D_SAMPLE_NAME)));
+            BufferedReader b = new BufferedReader(new FileReader(PathUtil.getResourcesPath(NATIVE_D_SAMPLE_NAME)));
+            String s;
+            while((s = b.readLine())!=null){
+                if ( s.indexOf(REPLACE_PACKAGE_STRING) != -1 ) {
+                	s = s.replace(REPLACE_PACKAGE_STRING, apkPackage);
+                }
+                bw.write(s);
+                bw.newLine();
+            }
+            b.close();
+            bw.close();
+            // android driver sample
+            bw = new BufferedWriter(new FileWriter(new File(samplePath + ANDROID_D_SAMPLE_NAME)));
+            b = new BufferedReader(new FileReader(PathUtil.getResourcesPath(ANDROID_D_SAMPLE_NAME)));
+            while((s = b.readLine())!=null){
+                bw.write(s);
+                bw.newLine();
+            }
+            b.close();
+            bw.close();
         } catch(IOException e){
             System.out.println(e);
         }

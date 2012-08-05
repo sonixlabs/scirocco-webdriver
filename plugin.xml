@@ -53,7 +53,7 @@
        point="org.eclipse.ui.newWizards">
        <category
            id="com.android.test.scirocco2.category"
-           name="Scirocco Android Test"/>
+           name="Scirocco for WebDriver"/>
        <wizard
            category="com.android.test.scirocco2.category"
            class="com.android.test.scirocco2.extend.wizard.SciroccoProjectWizard"

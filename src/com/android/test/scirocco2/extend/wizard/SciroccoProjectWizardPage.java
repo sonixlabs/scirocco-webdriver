@@ -45,11 +45,11 @@ import com.android.test.scirocco2.preference.Scirocco2PreferenceInitializer;
 
 public class SciroccoProjectWizardPage extends WizardPage {
 
-    private static final String MASSAGE_APK_EMPTY = "Apk's package information must be specified";
+    private static final String MASSAGE_APK_EMPTY = "Target app package information must be specified";
     
     private static final String MASSAGE_SDK_EMPTY = "Android SDK path must be specified";
     
-    private static final String LABEL_APK = "Apk's package:";
+    private static final String LABEL_APK = "Target app package:";
     
     private static final String LABEL_ADB = "Android sdk path:";
     

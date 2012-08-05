@@ -66,6 +66,7 @@ public class SciroccoProjectWizard extends BasicNewResourceWizard implements IEx
     private static final String BIN_DIR = "bin";
     
     private static final String LIB_DIR = "lib";
+
     
     private SciroccoProjectWizardPage mainPage;
 
@@ -167,6 +168,9 @@ public class SciroccoProjectWizard extends BasicNewResourceWizard implements IEx
                     properties.put(ADB_PATH_KEY, adbPath);
                     properties.put(TARGET_APK_KEY, apkPackage);
                     FileUtil.createPropertiesFile(propertiesPath, properties);
+                    String sampleDirPath = javaProject.getResource().getLocationURI().getPath() + SEPARATOR + SRC_DIR +
+                    		SEPARATOR + "test" + SEPARATOR + "sample" + SEPARATOR;
+                    FileUtil.createSampleClassFile(sampleDirPath, apkPackage);
                     // refresh project
                     monitor.worked(1);
                     project.refreshLocal(IResource.DEPTH_INFINITE, monitor);
