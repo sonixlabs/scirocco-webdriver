@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.android.AndroidDriver;
 
+import com.android.test.scirocco2.jar.ADUtil;
+
 
 public class AndroidDriverSample extends TestCase {
 	
@@ -27,6 +29,10 @@ public class AndroidDriverSample extends TestCase {
 		
 		// Check the title of the page
 		System.out.println("Page title is: " + driver.getTitle());
+
+		// Get screen shot
+		ADUtil.getScreenShot(driver);
+		
 		driver.quit();
 	}
 }

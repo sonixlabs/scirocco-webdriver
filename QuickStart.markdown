@@ -2,8 +2,8 @@
 
 
 ##### 1.GET Eclipse
- - Download Eclipse(java3.7.2 or 4.2 (3.6.2) from http://www.eclipse.org/downloads/ 
-（Eclipse IDE for Java Developers or Eclipse Classic）
+ - Download Eclipse from http://www.eclipse.org/downloads/ 
+(Eclipse IDE for Java Developers or Eclipse Classic, version 4.2 or 3.7.2 or 3.6.2)
 
 ##### 2.GET Android SDK
 - Download Android SDK from 

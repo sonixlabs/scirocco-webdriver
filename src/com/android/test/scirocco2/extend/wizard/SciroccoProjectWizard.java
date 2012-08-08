@@ -77,6 +77,8 @@ public class SciroccoProjectWizard extends BasicNewResourceWizard implements IEx
     private IConfigurationElement configElement;
     
     private String apkPackage;
+    
+    private String adbPath;
 
     public SciroccoProjectWizard() {
         IDialogSettings workbenchSettings = IDEWorkbenchPlugin.getDefault().getDialogSettings();
@@ -114,6 +116,7 @@ public class SciroccoProjectWizard extends BasicNewResourceWizard implements IEx
         }
         // create the new project operation
         apkPackage = mainPage.apkPackageField.getText();
+        adbPath = AdbService.getAdbPath(mainPage.adbPathField.getStringValue().trim());
         final IProject project = mainPage.getProjectHandle();
         IRunnableWithProgress op = new IRunnableWithProgress() {
             public void run(IProgressMonitor monitor) throws InvocationTargetException {
@@ -160,7 +163,6 @@ public class SciroccoProjectWizard extends BasicNewResourceWizard implements IEx
                     // save properties
                     String propertiesPath = javaProject.getResource().getLocationURI().getPath() + SEPARATOR + PROJECT_PROPERTIES;
                     Map<String, String> properties = new HashMap<String, String>();
-                    String adbPath = AdbService.getAdbPath().trim();
                     // check windows path
                     if (adbPath.indexOf(':') > 0) {
                         adbPath = adbPath.replaceAll(SEPARATOR + SEPARATOR, SEPARATOR + SEPARATOR + SEPARATOR + SEPARATOR);
@@ -170,6 +172,9 @@ public class SciroccoProjectWizard extends BasicNewResourceWizard implements IEx
                     FileUtil.createPropertiesFile(propertiesPath, properties);
                     String sampleDirPath = javaProject.getResource().getLocationURI().getPath() + SEPARATOR + SRC_DIR +
                     		SEPARATOR + "test" + SEPARATOR + "sample" + SEPARATOR;
+                    if (sampleDirPath.indexOf(':') > 0) {
+                    	sampleDirPath = sampleDirPath.replaceAll(SEPARATOR + SEPARATOR, SEPARATOR + SEPARATOR + SEPARATOR + SEPARATOR);
+                    }
                     FileUtil.createSampleClassFile(sampleDirPath, apkPackage);
                     // refresh project
                     monitor.worked(1);

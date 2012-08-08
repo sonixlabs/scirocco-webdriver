@@ -43,8 +43,12 @@ public class AdbService {
     public static String getAdbPath() {
         IPreferenceStore store = Activator.getDefault().getPreferenceStore();
         String sdkLocation = store.getString(Scirocco2PreferenceInitializer.ANDROID_SDK_LOCATION);
-        StringBuilder adbPath = new StringBuilder();
-        adbPath.append(sdkLocation);
+        return getAdbPath(sdkLocation);
+    }
+    
+    public static String getAdbPath(String sdkPath) {
+    	StringBuilder adbPath = new StringBuilder();
+        adbPath.append(sdkPath);
         adbPath.append(SEPARATOR);
         adbPath.append("platform-tools");
         adbPath.append(SEPARATOR);
