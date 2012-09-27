@@ -31,3 +31,8 @@ reports with screenshots
 ### Updatesite
 
 * http://scirocco.sonixlabs.com/update
+
+
+### QuickStart
+
+* https://github.com/sonixlabs/scirocco-webdriver/blob/master/QuickStart.markdown

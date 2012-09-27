@@ -15,7 +15,7 @@ import com.android.test.scirocco2.util.PathUtil;
 
 public class InitialService {
     
-    private static final String FB2PNG = "fb2png";
+    private static final String FBUTIL = "fbutil";
     
     private static final String APK_OLD = "android-server-2.6.0.apk";
     
@@ -46,7 +46,7 @@ public class InitialService {
         }
         AdbService.exeCommand(Command.CMD_INIT_WEB, new String[]{deviceInfo.getDeviceId()});
         AdbService.exeCommand(Command.CMD_FW_WEB, new String[]{deviceInfo.getDeviceId()});
-        AdbService.exeCommand(Command.CMD_INST_FB2, new String[]{deviceInfo.getDeviceId(), PathUtil.getResourcesPath(FB2PNG)});
+        AdbService.exeCommand(Command.CMD_INST_FB2, new String[]{deviceInfo.getDeviceId(), PathUtil.getResourcesPath(FBUTIL)});
         AdbService.exeCommand(Command.CMD_INIT_FB2, new String[]{deviceInfo.getDeviceId()});
         return true;
     }

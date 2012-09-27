@@ -44,9 +44,9 @@ public class NDUtil {
 		screenshotPath.append(element.getMethodName());
 		screenshotPath.append("_");
 		screenshotPath.append(Integer.toString(sequenceNo));
-		screenshotPath.append(".png");
-        execAdbCommand("shell /data/local/fb2png /data/local/tmp.png");
-        execAdbCommand("pull /data/local/tmp.png " + screenshotPath);
+		screenshotPath.append(".jpg");
+        execAdbCommand("shell /data/local/tmp/fbutil -m jpeg");
+        execAdbCommand("pull /data/local/tmp/fbdump " + screenshotPath);
 	}
 	
     private static String getImgDirPath() {
@@ -61,13 +61,13 @@ public class NDUtil {
 		Properties configuration = new Properties();
     	// scirocco.propertiesからadbパスを読み込む
     	try {
-    	      InputStream inputStream = 
-    	    		  new FileInputStream(new File(userDir + SEPARATOR + "scirocco.properties"));
-    	      configuration.load(inputStream);
-    	    } catch (IOException e) {
-    	      e.printStackTrace();
-    	    }
-        return configuration.getProperty("adb_path");
+    	    InputStream inputStream = new FileInputStream(new File(userDir + SEPARATOR + "scirocco.properties"));
+    	    configuration.load(inputStream);
+    	} catch (IOException e) {
+    	    e.printStackTrace();
+    	}
+    	String adbPath = configuration.getProperty("adb_path").trim(); 
+        return adbPath;
     }
     
 	private static void updateScreenshotSequenceNo(StackTraceElement element) {

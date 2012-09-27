@@ -53,22 +53,22 @@ public class CommandUtil {
                 command.append(param[0]);
                 command.append(" push ");
                 command.append(param[1]);
-                command.append(" /data/local/");
+                command.append(" /data/local/tmp/");
             break;
             case CMD_INIT_FB2:
                 command.append("-s ");
                 command.append(param[0]);
-                command.append(" shell chmod 755 /data/local/fb2png");
+                command.append(" shell chmod 755 /data/local/tmp/fbutil");
             break;
             case CMD_TAKE_FB2:
                 command.append("-s ");
                 command.append(param[0]);
-                command.append(" shell /data/local/fb2png /data/local/tmp.png");
+                command.append(" shell /data/local/tmp/fbutil -m jpeg");
             break;
             case CMD_COPY_FB2:
                 command.append("-s ");
                 command.append(param[0]);
-                command.append(" pull /data/local/tmp.png ");
+                command.append(" pull /data/local/tmp/fbdump ");
                 command.append(param[1]);
             break;
             default:

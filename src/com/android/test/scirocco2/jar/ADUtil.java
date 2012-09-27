@@ -24,7 +24,7 @@ public class ADUtil {
 		screenshotPath.append(element.getMethodName());
 		screenshotPath.append("_");
 		screenshotPath.append(Integer.toString(sequenceNo));
-		screenshotPath.append(".png");
+		screenshotPath.append(".jpg");
 		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 	    try {
 			FileUtils.copyFile(scrFile, new File(getImgDirPath() + screenshotPath));

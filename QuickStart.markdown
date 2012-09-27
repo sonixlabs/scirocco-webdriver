@@ -38,5 +38,5 @@ Then unzipped, and save in your workspace.
 - Create the test class in the test project which you generate, in the proper package.
  (about the program code, refer the sample in the "test.sample package".)
 - You can test the Android driver just to write the source code. (you can also use the sample package.）
-- For the Native driver, you need to incorporate the library for the Native driver. Also you need to install the APK which you add the notes to the manifest, into the target device which you do the test.
+- For the Native driver, you need to incorporate the library for the Native driver. (library download url => http://scirocco.sonixlabs.com/server-standalone.jar) Also you need to install the APK which you add the notes to the manifest, into the target device which you do the test. (Learn more => http://code.google.com/p/nativedriver/wiki/AndroidMakeAnAppTestable)
 The APK file which you install must be one. (If you install multiple APK files, an error will occur.）

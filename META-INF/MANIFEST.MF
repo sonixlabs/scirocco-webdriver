@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Scirocco for WebDriver
 Bundle-SymbolicName: com.android.test.scirocco2; singleton:=true
-Bundle-Version: 1.0.1
+Bundle-Version: 1.0.4
 Bundle-Activator: com.android.test.scirocco2.Activator
 Bundle-Vendor: sonix
 Require-Bundle: org.eclipse.ui,
@@ -16,7 +16,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.pde.core,
  org.eclipse.pde.ui,
  org.eclipse.ui.ide,
- org.apache.velocity
+ org.apache.velocity,
+ org.eclipse.ui.console;bundle-version="3.5.100"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: library.jar,

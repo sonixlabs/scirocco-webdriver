@@ -32,7 +32,7 @@ public class ScirrocoTestListener extends TestRunListener {
     
     private static final String SEPARATOR = System.getProperty("file.separator");
     
-    private static final String DATE_FORMAT = "yyyy-MM-dd hh:mm:ss";
+    private static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
     
     private static final String REPORT_ROOT = "report";
     
@@ -138,7 +138,7 @@ public class ScirrocoTestListener extends TestRunListener {
             screenshotPath.append(testCaseElement.getTestMethodName());
             screenshotPath.append("_");
             screenshotPath.append(0);
-            screenshotPath.append(".png");
+            screenshotPath.append(".jpg");
             AdbService.exeCommand(Command.CMD_TAKE_FB2, new String[]{ReferenceUtil.getInstance().getLaunchShortcut().getCurrentDeviceInfo().getDeviceId()});
             AdbService.exeCommand(Command.CMD_COPY_FB2, new String[]{ReferenceUtil.getInstance().getLaunchShortcut().getCurrentDeviceInfo().getDeviceId(), screenshotPath.toString()});
             testCase.setFailureTrace(testCaseElement.getFailureTrace().getTrace());
@@ -223,7 +223,7 @@ public class ScirrocoTestListener extends TestRunListener {
         imgDir.append(SEPARATOR + REPORT_BASE);
         imgDir.append(SEPARATOR + REPORT_IMG);
         File dir = new File(imgDir.toString());
-        String[] filesList = dir.list(FileUtil.getFileExtensionFilter(".png"));
+        String[] filesList = dir.list(FileUtil.getFileExtensionFilter(".jpg"));
         TestImage failImage = null;
         for (String file : filesList) {
             String imgInfoStr= file.substring(0, file.lastIndexOf("."));
@@ -287,6 +287,9 @@ public class ScirrocoTestListener extends TestRunListener {
         }
         // delete temp file
         FileUtil.delete(targetProjectDir + SEPARATOR + TEMP_FILE);
+        testClass = null;
+        testCaseList = null;
+        testImageList = null;
     }
     
     // ディレクトリ内のファイルを移動先へ移動する
